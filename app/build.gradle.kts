@@ -6,6 +6,8 @@ android {
     namespace = "com.example.modbusimplementation"
     compileSdk = 34
 
+    packagingOptions { resources.excludes.add("META-INF/*") }
+
     defaultConfig {
         applicationId = "com.example.modbusimplementation"
         minSdk = 24
@@ -20,8 +22,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -50,4 +51,6 @@ dependencies {
     implementation(files("libs/easymodbusjava.jar"))
     implementation("net.wimpi:jamod:1.2")
     implementation("com.fazecast:jSerialComm:[2.0.0,3.0.0)")
+    implementation("com.digitalpetri.enip:enip-client:1.4.1")
+
 }
